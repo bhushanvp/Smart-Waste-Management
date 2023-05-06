@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/login.js" async></script>
+    <title>Register / Login</title>
+</head>
+
+<body>
+
+    {{>header}}
+    <form id="login-form" method="post">
+        <h1>Login</h1>
+        <br>
+        <div class="fields">
+
+            <div class="input-fields">
+                <label for="login-entity">What type of entity are you ? <span class="required-field">*</span></label>
+                <select name="login-entity" id="login-entity" required>
+                    <option value="">Please select an option</option>
+                    <option value="producer">Producer</option>
+                    <option value="recycler">Recycler</option>
+                </select>
+                &ensp;<span class="err" id="no-login-entity"></span>
+            </div>
+
+            <br><br>
+
+
+            <div class="input-fields">
+                <label for="company-email">Whats your email? <span class="required-field">*</span></label>
+                <input type="email" name="company-email" id="company-email" required
+                    placeholder="Enter Email Address">&ensp;<span class="err" id="no-company-email"></span>
+
+            </div>
+            <br><br>
+
+
+            <div class="input-fields">
+                <label for="password">Whats your password? <span class="required-field">*</span></label>
+                <input type="password" name="password" id="password" required
+                    placeholder="Enter your password">&ensp;<span class="err" id="password-err"></span>
+
+            </div>
+            <br><br>
+        <button type="submit">Login</button>
+        </div>
+
+
+        <br>
+    </form>
+
+    <br>
+
+    <div class="switch-form-container">
+        <label for="switch-form-button"><span id="switch-form-button-label">Not registered yet?</span></label>
+        <a href="/register"><input type="button" value="Register Now" id="switch-form-button"></a>
+    </div>
+
+    {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #0079bf;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: #000;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    padding: 10px;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
+.optional-field {
+    font-size: 0.7rem;
+}
+
+.required-field,
+.err {
+    font-size: 0.8rem;
+    color: #ff5a5f;
+}
+
+form {
+    max-width: 1050px;
+    margin: 60px auto 0px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.switch-form-container {
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+#switch-form-button {
+    background: #0079bf;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#switch-form-button:hover {
+    background-color: #005a8d;
+}
+
+.coordinates {
+    display: none;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 40%;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+.subform-title {
+    color: #686868;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input,
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+  
+  p {
+    text-align: center;
+
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .container form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  form .fields .input-field {
+    display: flex;
+    width: calc(100%/3-15px);
+    flex-direction: column;
+    margin: 4px 0;
+  }
+
+  #waste-type-container {
+    display: flex;
+  }
+
+  #individual-waste-type {
+    display: flex;
+  }
+
+#login-form {
+    max-width: 400px;
+    margin: 60px auto 0px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

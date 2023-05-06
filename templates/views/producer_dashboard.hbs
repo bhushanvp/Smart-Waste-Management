@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/producer_dashboard.js" async></script>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title>Smart Waste Management</title>
+</head>
+
+<body>
+    {{!-- {{>header}} --}}
+    <div class="greet">Hello {{name}}</div>
+
+    <hr>
+        <span class="err" id="order-status">{{order_status}}</span>
+    <br>
+
+    <div class="accepted-requests-label">Accepted Requests</div>
+    <table class="accepted-requests">
+        <tr class="table-headings">
+            <th>Order I.D.</th>
+            <th>Waste Type</th>
+            <th>Waste Quantity</th>
+            <th>Recycler ID</th>
+            <th>Pickup Time</th>
+        </tr>
+        {{#each accepted_requests}}
+        <tr class="accepted-request">
+            <td>{{this.order_id}}</td>
+            <td>{{this.waste_type}}</td>
+            <td>{{this.waste_quantity}}</td>
+            <td>{{this.recycler_id}}</td>
+            <td>{{this.pickup_date}}</td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <br>
+
+    <hr>
+
+    <div class="pending-requests-label">Pending Requests</div>
+    <table class="pending-requests">
+        <tr class="table-headings">
+            <th>Order I.D.</th>
+            <th>Waste Type</th>
+            <th>Waste Quantity</th>
+            <th>Pickup Time Requested</th>
+        </tr>
+
+        {{#each pending_requests}}
+        <tr class="pending-request">
+            <td>{{this.order_id}}</td>
+            <td>{{this.waste_type}}</td>
+            <td>{{this.waste_quantity}}</td>
+            <td>{{this.pickup_date}}</td>
+        </tr>
+        {{/each}}
+
+    </table>
+
+    <br>
+    <hr>
+
+    <div class="pending-verification-requests-label">Pending Verification Requests</div>
+    <table class="pending-verification-requests">
+        <tr class="table-headings">
+            <th>Order I.D.</th>
+            <th>Waste Type</th>
+            <th>Waste Quantity</th>
+            <th>Pickup Time</th>
+            <th>Execute</th>
+        </tr>
+
+        {{#each pending_verification_requests}}
+        <tr class="pending-verification-request">
+            <td>{{this.order_id}}</td>
+            <td>{{this.waste_type}}</td>
+            <td>{{this.waste_quantity}}</td>
+            <td>{{this.pickup_date}}</td>
+            <td>
+                <a href="/producer/order/execute/{{this.order_id}}">
+                    <input type="button" class="action" id="execute" value="Execute">
+                </a>
+            </td>
+        </tr>
+        {{/each}}
+
+    </table>
+
+    <br>
+    <hr>
+
+    <div class="executed-requests-label">Executed Requests</div>
+    <table class="executed-requests">
+        <tr class="table-headings">
+            <th>Order I.D.</th>
+            <th>Waste Type</th>
+            <th>Waste Quantity</th>
+            <th>Pickup Time</th>
+        </tr>
+
+        {{#each executed_requests}}
+        <tr class="executed-request">
+            <td>{{this.order_id}}</td>
+            <td>{{this.waste_type}}</td>
+            <td>{{this.waste_quantity}}</td>
+            <td>{{this.pickup_date}}</td>
+        </tr>
+        {{/each}}
+
+    </table>
+
+    <br>
+    <hr>
+
+    <div class="create-order">
+        <div class="create-order-icon">
+            <img id="create-order-image" src="/images/order.png" alt="Order Image">
+            <span>Create an order</span>
+        </div>
+        
+        <div id="create-order-form">
+            <form action="/producer/create-order" method="post" onsubmit="return validateOrder()">
+                <button id="close-button">X</button>
+                <label for="waste-type">Material of Waste</label>
+                {{!-- <input type="text" name="waste_type" id="waste-type" placeholder="Enter the type of waste"> --}}
+                <select name="waste_type" id="waste-type" required>
+                    <option value="">Please select an option</option>
+                    <option value=2>Iron</option>
+                    <option value=4>Plastic</option>
+                    <option value=8>Organic</option>
+                </select>
+                <span id="no-waste-type"></span>
+
+                <br>
+
+                <label for="waste-quantity">Quantity of Waste</label>
+                <input type="text" name="waste_quantity" id="waste-quantity" placeholder="Enter the Quantity of Waste">
+                <span id="no-waste-quantity"></span>
+
+                <br>
+
+                <label for="pickup-time">Order Pickup Time</label>
+                <input type="datetime-local" name="pick_up_time" id="pickup-time">
+                <span id="wrong-date"></span>
+
+                <br>
+
+                <button type="submit">Create Order</button>
+
+            </form>
+        </div>
+    </div>
+
+    <a href="/producer/logout"><input type="button" value="logout" class="logout-btn" id="logout"></a>
+
+    {{!-- {{>footer}} --}}
+</body>
+
+</html>
